@@ -8,9 +8,7 @@ const greetings = [
 ];
 
 try {
-    const SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition;
-
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
 
     recognition.onstart = () => {
@@ -27,17 +25,17 @@ try {
         readOutLoud(transcript);
     };
 
+
     //add the Listener to the btn
     btn.addEventListener('click', () => {
         recognition.start();
     })
-
     
 
     function readOutLoud(message) {
         const speech = new SpeechSynthesisUtterance();
 
-        speech.text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deleniti, illum ullam eveniet quia molestiae ducimus sint aspernatur atque dignissimos.';
+        speech.text = 'A Google Cloud Text-to-Speech converte texto de mais de 30 idiomas e variações em fala e conta com mais de 180 vozes. Ela aplica a pesquisa inovadora sobre síntese de fala (WaveNet) e as redes neurais avançadas do Google para oferecer áudio de alta fidelidade. Com a API fácil de usar, é possível criar interações realistas com os usuários e transformar o atendimento ao cliente e a interação com dispositivos e outros aplicativos.';
 
         if (message.includes('Bom dia')) {
             const finalText = greetings[Math.floor(Math.random() * greetings.length)];
