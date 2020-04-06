@@ -2,12 +2,12 @@ const btn = document.querySelector('.talk');
 const content = document.querySelector('.content');
 
 const greetings = [
-    'Im good you little piece of love',
-    'Doing good homeboi',
-    'leave me alone'
+    'Não te interessa!',
+    'Eu sou foda!',
+    'Você acha que eu sei'
 ];
 
-const weather = ['Weather is fine', 'You need a tan'];
+const weather = ['O tempo está bom', 'Você não sai de casa, por quê quer saber ?'];
 
 try {
     const SpeechRecognition = 
@@ -35,11 +35,16 @@ try {
     function readOutLoud(message) {
         const speech = new SpeechSynthesisUtterance();
 
-        speech.text = "i don't know what you said";
+        speech.text = "Não entendi";
 
-        if (message.includes("i don't know what you said")) {
+        if (message.includes("como você")) {
             const finalText = 
                 greetings[Math.floor(Math.random() * greetings.length)];
+            speech.text = finalText;
+        }
+        if (message.includes("tempo")) {
+            const finalText = 
+            weather[Math.floor(Math.random() * weather.length)];
             speech.text = finalText;
         }
 
